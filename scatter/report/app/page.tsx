@@ -4,7 +4,7 @@ import type {Metadata} from 'next'
 import {Heading, HStack} from '@chakra-ui/react'
 import {BroadlisteningGuide} from '@/components/BroadlisteningGuide'
 
-const file = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/result.json`, 'utf8')
+const file = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/hierarchical_result.json`, 'utf8')
 const result = JSON.parse(file)
 
 export const metadata: Metadata = {
