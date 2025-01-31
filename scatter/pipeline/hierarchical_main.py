@@ -9,7 +9,7 @@ from steps.hierarchical_clustering import hierarchical_clustering
 from steps.hierarchical_initial_labelling import hierarchical_initial_labelling
 from steps.hierarchical_merge_labelling import hierarchical_merge_labelling
 from steps.hierarchical_overview import hierarchical_overview
-
+from steps.hierarchical_visualization import hierarchical_visualization
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -62,8 +62,7 @@ def main():
         run_step("hierarchical_merge_labelling", hierarchical_merge_labelling, config)
         run_step("hierarchical_overview", hierarchical_overview, config)
         run_step("hierarchical_aggregation", hierarchical_aggregation, config)
-        # TODO: js側の実装が完了した後にコメントアウトを外す
-        # run_step("hierarchical_visualization", visualization, config)
+        run_step("hierarchical_visualization", hierarchical_visualization, config)
 
         termination(config)
     except Exception as e:

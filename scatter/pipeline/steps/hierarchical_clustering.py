@@ -104,14 +104,12 @@ def hierarchical_clustering_embeddings(
     kmeans_model.fit(umap_embeds)
     print("end initial clustering")
 
-    # num_clusters = generate_cluster_count_list(min_clusters=min_clusters, max_clusters=max_clusters)
     results = {}
     print("start hierarchical clustering")
     cluster_nums.sort()
     print(cluster_nums)
-    print(kmeans_model.labels_)
     for n_cluster_cut in cluster_nums[:-1]:
-        print(n_cluster_cut)
+        print("n_cluster_cut: ", n_cluster_cut)
         final_labels = merge_clusters_with_hierarchy(
             cluster_centers=kmeans_model.cluster_centers_,
             kmeans_labels=kmeans_model.labels_,

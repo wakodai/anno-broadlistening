@@ -32,9 +32,6 @@ class Cluster(TypedDict):
 
 def hierarchical_aggregation(config):
     path = f"outputs/{config['output_dir']}/hierarchical_result.json"
-    total_sampling_num = config["hierarchical_aggregation"]["sampling_num"]
-    print("total sampling num:", total_sampling_num)
-
     results = {
         "arguments": [],
         "clusters": [],
