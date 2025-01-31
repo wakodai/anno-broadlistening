@@ -38,17 +38,17 @@ type Config = {
   output_dir: string // 結果の出力ディレクトリ名
   previous?: Config // 過去の設定情報
   extraction: {
-    workers: number | string // 並列処理数（数値 or 文字列）
-    limit: number | string // データ抽出の上限数（数値 or 文字列）
+    workers: number // 並列処理数
+    limit: number// データ抽出の上限数
     properties: string[] | string // 含めるプロパティのリスト（配列 or 文字列）
     categories: Record<string, Record<string, string>> // 分類情報
-    category_batch_size: number | string // カテゴリ処理のバッチサイズ（数値 or 文字列）
+    category_batch_size: number // カテゴリ処理のバッチサイズ
     source_code: string // 実行するスクリプトのコード
     prompt: string // LLM に渡すプロンプト
     model: string // 使用するモデル名
   }
   hierarchical_clustering: {
-    cluster_nums: number[] | string // クラスタ数のリスト（配列 or 文字列）
+    cluster_nums: number[] // クラスタ数のリスト
     source_code: string // クラスタリングのスクリプト
   }
   embedding: {
@@ -56,15 +56,13 @@ type Config = {
     source_code: string // 埋め込みを生成するスクリプト
   }
   hierarchical_initial_labelling: {
-    sampling_num: number | string // サンプリング数（数値 or 文字列）
-    workers: number | string // 並列処理数（数値 or 文字列）
+    workers: number // 並列処理数
     source_code: string // 初期ラベリングスクリプト
     prompt: string // LLM のプロンプト
     model: string // 使用するモデル
   }
   hierarchical_merge_labelling: {
-    sampling_num: number | string // サンプリング数（数値 or 文字列）
-    workers: number | string // 並列処理数（数値 or 文字列）
+    workers: number // 並列処理数
     source_code: string // マージラベリングスクリプト
     prompt: string // LLM のプロンプト
     model: string // 使用するモデル
@@ -75,8 +73,6 @@ type Config = {
     model: string // 使用するモデル
   }
   hierarchical_aggregation: {
-    include_minor: boolean | string // 小規模クラスタを含めるか（真偽値 or 文字列）
-    sampling_num: number | string // サンプリング数（数値 or 文字列）
     hidden_properties: Record<string, string[]> // 非表示プロパティ情報
     source_code: string // 集約スクリプト
   }
@@ -93,11 +89,11 @@ type Config = {
       completed: string
       duration: number | string
       params: {
-        workers: number | string
+        workers: number // 並列処理数
         limit?: number | string
         properties?: string[] | string
         categories?: Record<string, Record<string, string>>
-        category_batch_size?: number | string
+        category_batch_size: number
         source_code: string
         prompt: string
         model: string
