@@ -1,6 +1,6 @@
 import {RadioCardItem, RadioCardRoot} from '@/components/ui/radio-card'
 import {HStack, Icon, useBreakpointValue} from '@chakra-ui/react'
-import {ChartScatterIcon, LifeBuoyIcon, ListTreeIcon} from 'lucide-react'
+import {ChartScatterIcon, LifeBuoyIcon, SquareSquareIcon} from 'lucide-react'
 import React from 'react'
 
 type Props = {
@@ -39,7 +39,7 @@ export function SelectChartButton({selected, onChange}: Props) {
           value={'treemap'}
           label={useBreakpointValue({ base: '', md: 'ツリーマップ' })}
           indicator={false}
-          icon={<Icon><ListTreeIcon /></Icon>}
+          icon={<Icon><SquareSquareIcon /></Icon>}
         />
       </HStack>
     </RadioCardRoot>
