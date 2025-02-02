@@ -14,16 +14,14 @@ export function About({meta}: AboutProps) {
     <Box mx={'auto'} maxW={'750px'} mb={12}>
       <Separator my={12} />
       <Heading textAlign={'center'} fontSize={'xl'} mb={5}>About</Heading>
-      {meta.reporterImage && (
-        <Image
-          src={meta.reporterImage}
-          mx={'auto'}
-          mb={5}
-          objectFit={'cover'}
-          maxW={'200px'}
-          alt={meta.reporterName}
-        />
-      )}
+      <Image
+        src={'/reporter.png'}
+        mx={'auto'}
+        mb={5}
+        objectFit={'cover'}
+        maxW={'200px'}
+        alt={meta.reporterName}
+      />
       <Text fontSize={'sm'} mb={5} whiteSpace={'pre-line'}>
         {meta.aboutMessage}
       </Text>

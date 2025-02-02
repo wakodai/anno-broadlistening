@@ -42,3 +42,6 @@ next-env.d.ts
 
 # IDEs
 .idea
+
+# temporary
+/public/reporter.png

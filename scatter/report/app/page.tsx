@@ -23,10 +23,10 @@ export default function Page() {
       <div className={'container'}>
         <HStack justify="space-between" mb={8}>
           <HStack>
-            {meta.reporterImage && (
+            {meta && (
               <>
                 <Image
-                  src={meta.reporterImage}
+                  src={'/reporter.png'}
                   mx={'auto'}
                   objectFit={'cover'}
                   maxH={{base: '40px', md: '50px'}}
@@ -48,10 +48,10 @@ export default function Page() {
         </HStack>
         <Report result={result} />
         <Analysis result={result} />
-        <About meta={meta} />
+        {meta && (<About meta={meta} />)}
       </div>
       <footer>
-        <Text fontWeight={'bold'}>{meta.reporterName}</Text>
+        {meta && (<Text fontWeight={'bold'}>{meta.reporterName}</Text>)}
         <Text>デジタル民主主義2030 ブロードリスニング</Text>
       </footer>
     </>

@@ -5,6 +5,7 @@
 ## Install
 ```
 npm install
+npm run build
 ```
 
 ## Develop
@@ -33,6 +34,25 @@ REPORT=xxxxx npm start
 - `REPORT`: レポート名 (*必須)
 
 ## Meta
-- `aboutMessage`: レポートの概要
-- `reporterName`: レポート作成者名
-- `reporterImage`: レポート作成者画像
+
+レポート作成者の情報を表示するには `../pipeline/outputs/{{report_name}}` に以下のファイルを配置してください
+
+- **meta.json**
+  - reporterName: レポート作成者名
+  - aboutMessage: レポート作成者についての説明
+  - aboutLink: レポート作成者のリンク
+  - privacyLink: プライバシーポリシーのリンク
+  - termsLink: 利用規約のリンク
+- **reporter.png**
+  - レポート作成者のロゴ画像
+
+```meta.json
+// meta.json
+{
+  "reporterName": "東京都架空区",
+  "aboutMessage": "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
+  "aboutLink": "https://example.com/",
+  "privacyLink": "https://example.com/privacy",
+  "termsLink": "https://example.com/terms"
+}
+```

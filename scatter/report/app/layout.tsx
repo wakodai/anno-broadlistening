@@ -18,6 +18,12 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
 })
 
+export const metadata = {
+  icons: {
+    icon: '/icon.png',
+  },
+}
+
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
   return (
     <html suppressHydrationWarning lang={'ja'} className={`${roboto.className} ${jetBrainsMono.className} ${notoSansJP.className} `}>
