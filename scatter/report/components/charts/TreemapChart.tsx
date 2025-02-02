@@ -39,7 +39,10 @@ export function TreemapChart({clusterList}: Props) {
       layout={layout}
       useResizeHandler={true}
       style={{width: '100%', height: '100%'}}
-      config={{responsive: true}}
+      config={{
+        responsive: true,
+        displayModeBar: false,
+      }}
     />
   )
 }

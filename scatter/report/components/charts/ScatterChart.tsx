@@ -88,7 +88,10 @@ export function ScatterChart({clusterList, argumentList}: Props) {
       }}
       useResizeHandler={true}
       style={{width: '100%', height: '100%'}}
-      config={{responsive: true}}
+      config={{
+        responsive: true,
+        displayModeBar: false,
+      }}
     />
   )
 }

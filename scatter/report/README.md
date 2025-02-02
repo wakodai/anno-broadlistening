@@ -28,3 +28,8 @@ REPORT=xxxxx npm start
 ## Note
 - 環境変数にレポート名を指定する必要があります (`process.env.REPORT`)
 - レポート名の一覧は `../pipeline/outputs/{{report_name}}` を確認してください
+
+## Environment variables
+- `REPORT`: レポート名 (*必須)
+- `REPORTER_NAME`: レポート作成者名
+- `REPORTER_IMAGE`: レポート作成者の画像パス

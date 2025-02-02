@@ -27,8 +27,7 @@ if (process.env.NODE_ENV === 'production') {
   nextConfig = {
     ...nextConfig,
     output: 'export',
-    distDir: `../pipeline/outputs/${report}/report`,
-    assetPrefix: './'
+    distDir: `../pipeline/outputs/${report}/report`
   }
 }
 
