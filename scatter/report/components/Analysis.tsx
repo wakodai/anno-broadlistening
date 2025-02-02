@@ -50,11 +50,11 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `抽出 (${p.step})`,
+                      title: `抽出 - ${p.step}`,
                       body: result.config.extraction.source_code
                     })}>ソースコード</Button>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `抽出 (${p.step})`,
+                      title: `抽出 - ${p.step}`,
                       body: result.config.extraction.prompt
                     })}>プロンプト</Button>
                   </HStack>
@@ -69,7 +69,7 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `埋め込み (${p.step})`,
+                      title: `埋め込み - ${p.step}`,
                       body: result.config.embedding.source_code
                     })}>ソースコード</Button>
                   </HStack>
@@ -84,7 +84,7 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `クラスタリング (${p.step})`,
+                      title: `クラスタリング - ${p.step}`,
                       body: result.config.hierarchical_clustering.source_code
                     })}>ソースコード</Button>
                   </HStack>
@@ -99,11 +99,11 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `初期ラベリング (${p.step})`,
+                      title: `初期ラベリング - ${p.step}`,
                       body: result.config.hierarchical_initial_labelling.source_code
                     })}>ソースコード</Button>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `初期ラベリング (${p.step})`,
+                      title: `初期ラベリング - ${p.step}`,
                       body: result.config.hierarchical_initial_labelling.prompt
                     })}>プロンプト</Button>
                   </HStack>
@@ -118,11 +118,11 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `統合ラベリング (${p.step})`,
+                      title: `統合ラベリング - ${p.step}`,
                       body: result.config.hierarchical_merge_labelling.source_code
                     })}>ソースコード</Button>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `統合ラベリング (${p.step})`,
+                      title: `統合ラベリング - ${p.step}`,
                       body: result.config.hierarchical_merge_labelling.prompt
                     })}>プロンプト</Button>
                   </HStack>
@@ -137,11 +137,11 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `要約 (${p.step})`,
+                      title: `要約 - ${p.step}`,
                       body: result.config.hierarchical_overview.source_code
                     })}>ソースコード</Button>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `要約 (${p.step})`,
+                      title: `要約 - ${p.step}`,
                       body: result.config.hierarchical_overview.prompt
                     })}>プロンプト</Button>
                   </HStack>
@@ -156,7 +156,7 @@ export function Analysis({result}: ReportProps) {
                   </TimelineDescription>
                   <HStack>
                     <Button variant={'outline'} size={'xs'} onClick={() => setSelectedData({
-                      title: `出力 (${p.step})`,
+                      title: `出力 - ${p.step}`,
                       body: result.config.hierarchical_aggregation.source_code
                     })}>ソースコード</Button>
                   </HStack>
@@ -167,14 +167,21 @@ export function Analysis({result}: ReportProps) {
         </TimelineRoot>
       </Box>
 
-      <DrawerRoot open={!!selectedData} size={'xl'}>
+      <DrawerRoot open={!!selectedData} size={'xl'} onOpenChange={() => setSelectedData(null)}>
         <DrawerBackdrop />
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>{selectedData?.title}</DrawerTitle>
           </DrawerHeader>
           <DrawerBody fontSize={'xs'}>
-            <Box p={5} borderRadius={5} bgColor={'#111'} color={'#fff'} whiteSpace={'pre-wrap'}>{selectedData?.body}</Box>
+            <Box
+              p={5}
+              borderRadius={5}
+              bgColor={'#111'}
+              color={'#fff'}
+              whiteSpace={'pre-wrap'}
+              className={'code'}
+            >{selectedData?.body}</Box>
           </DrawerBody>
           <DrawerFooter>
             <Button w={'150px'} onClick={() => setSelectedData(null)}>閉じる</Button>
