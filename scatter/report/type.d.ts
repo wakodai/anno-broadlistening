@@ -1,3 +1,12 @@
+export type Meta = {
+  reporterName: string // レポート作成者名
+  reporterImage?: string // レポート作成者画像
+  aboutMessage: string // このレポートについて
+  aboutLink?: string // このレポートについてのリンク
+  privacyLink?: string // プライバシーポリシーURL
+  termsLink?: string // 利用規約URL
+}
+
 export type Result = {
   arguments: Argument[] // 抽出された意見のリスト
   clusters: Cluster[] // クラスタ情報

@@ -31,5 +31,8 @@ REPORT=xxxxx npm start
 
 ## Environment variables
 - `REPORT`: レポート名 (*必須)
-- `REPORTER_NAME`: レポート作成者名
-- `REPORTER_IMAGE`: レポート作成者の画像パス
+
+## Meta
+- `aboutMessage`: レポートの概要
+- `reporterName`: レポート作成者名
+- `reporterImage`: レポート作成者画像

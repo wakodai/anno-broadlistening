@@ -2,10 +2,15 @@ import fs from 'fs'
 import { Report } from '@/components/Report'
 import {Analysis} from '@/components/Analysis'
 import type {Metadata} from 'next'
-import {Box} from '@chakra-ui/react'
+import {Heading, HStack, Image, Text} from '@chakra-ui/react'
+import {About} from '@/components/About'
+import {XIcon} from 'lucide-react'
+import {BroadlisteningGuide} from '@/components/BroadlisteningGuide'
 
-const file = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/result.json`, 'utf8')
-const result = JSON.parse(file)
+const resultFile = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/result.json`, 'utf8')
+const result = JSON.parse(resultFile)
+const metaFile = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/meta.json`, 'utf8')
+const meta = JSON.parse(metaFile)
 
 export const metadata: Metadata = {
   title: `${result.config.question} - デジタル民主主義2030 ブロードリスニング`,
@@ -14,9 +19,41 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Box>
-      <Report result={result} />
-      <Analysis result={result} />
-    </Box>
+    <>
+      <div className={'container'}>
+        <HStack justify="space-between" mb={8}>
+          <HStack>
+            {meta.reporterImage && (
+              <>
+                <Image
+                  src={meta.reporterImage}
+                  mx={'auto'}
+                  objectFit={'cover'}
+                  maxH={{base: '40px', md: '50px'}}
+                  maxW={{base: '120px', md: '200px'}}
+                  alt={meta.reporterName}
+                />
+                <XIcon color={'gray'}/>
+              </>
+            )}
+            <Heading
+              as={'h1'}
+              size={{base: 'sm', md: 'lg'}}
+              fontWeight={'bold'}
+              className={'gradientColor'}
+              lineHeight={'1.4'}
+            >デジタル民主主義2030<br/>ブロードリスニング</Heading>
+          </HStack>
+          <BroadlisteningGuide/>
+        </HStack>
+        <Report result={result} />
+        <Analysis result={result} />
+        <About meta={meta} />
+      </div>
+      <footer>
+        <Text fontWeight={'bold'}>{meta.reporterName}</Text>
+        <Text>デジタル民主主義2030 ブロードリスニング</Text>
+      </footer>
+    </>
   )
 }
