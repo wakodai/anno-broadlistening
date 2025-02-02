@@ -23,8 +23,7 @@ export function BroadlisteningGuide() {
           <DialogCloseTrigger />
         </DialogHeader>
         <DialogBody>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          TODO ブロードリスニングの解説を書く
         </DialogBody>
       </DialogContent>
     </DialogRoot>

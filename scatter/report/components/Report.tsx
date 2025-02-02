@@ -5,8 +5,9 @@ import {ScatterChart} from '@/components/charts/ScatterChart'
 import {SunburstChart} from '@/components/charts/SunburstChart'
 import {TreemapChart} from '@/components/charts/TreemapChart'
 import {useState} from 'react'
-import {Box, Heading, Text} from '@chakra-ui/react'
+import {Box, Heading, Icon, Text} from '@chakra-ui/react'
 import {SelectChartButton} from '@/components/charts/SelectChartButton'
+import {MessageSquareIcon} from 'lucide-react'
 
 type ReportProps = {
   result: Result
@@ -16,12 +17,11 @@ export function Report({result}: ReportProps) {
   const [selectedChart, setSelectedChart] = useState('scatter')
   return (
     <Box>
-      {/* 見出し */}
       <Box mx={'auto'} maxW={'800px'} mb={5}>
+        <Heading textAlign={'center'} fontSize={'xl'} mb={5}>Report</Heading>
         <Heading as={'h2'} size={'3xl'} mb={2} className={'headingColor'}>{result.config.question}</Heading>
         <p>{result.overview}</p>
       </Box>
-      {/* チャート */}
       <Box mx={'auto'} w={'100%'} maxW={'1200px'} p={5} mb={10}>
         <Box h={'500px'} mb={5}>
           {selectedChart === 'scatter' && (
@@ -38,14 +38,15 @@ export function Report({result}: ReportProps) {
           <SelectChartButton selected={selectedChart} onChange={setSelectedChart} />
         </Box>
       </Box>
-      {/* 解説 */}
       {result.clusters.filter(c => c.level === 1).map(c => (
-        <Box key={c.id} mx={'auto'} maxW={'800px'} my={10}>
-          <Heading fontSize={'2xl'} mb={4} className={'headingColor'}>{c.label}</Heading>
+        <Box key={c.id} mx={'auto'} maxW={'800px'} my={12}>
+          <Box mb={2}>
+            <Heading fontSize={'2xl'} className={'headingColor'} mb={1}>{c.label}</Heading>
+            <Text fontWeight={'bold'}><Icon mr={1}><MessageSquareIcon size={20} /></Icon>{c.value}コメント</Text>
+          </Box>
           <Text>{c.takeaway}</Text>
         </Box>
       ))}
-      {/*<pre style={{fontSize: '10px'}}>{JSON.stringify(result, null, 2)}</pre>*/}
     </Box>
   )
 }

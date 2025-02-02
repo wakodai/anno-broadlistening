@@ -20,6 +20,7 @@ export function SelectChartButton({selected, onChange}: Props) {
       display={'block'}
       value={selected}
       onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+      colorPalette={'cyan'}
     >
       <HStack align={'stretch'}>
         <RadioCardItem

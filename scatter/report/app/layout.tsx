@@ -31,7 +31,6 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
                 alt={process.env.REPORTER_NAME}
               />
             )}
-            <Heading textAlign={'center'} fontSize={'xl'} mb={5}>Report</Heading>
             {children}
           </div>
           <footer>
