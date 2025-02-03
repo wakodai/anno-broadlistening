@@ -5,6 +5,7 @@
 ## Install
 ```
 npm install
+npm run build
 ```
 
 ## Develop
@@ -28,3 +29,30 @@ REPORT=xxxxx npm start
 ## Note
 - 環境変数にレポート名を指定する必要があります (`process.env.REPORT`)
 - レポート名の一覧は `../pipeline/outputs/{{report_name}}` を確認してください
+
+## Environment variables
+- `REPORT`: レポート名 (*必須)
+
+## Meta
+
+レポート作成者の情報を表示するには `../pipeline/outputs/{{report_name}}` に以下のファイルを配置してください
+
+- **meta.json**
+  - reporterName: レポート作成者名
+  - aboutMessage: レポート作成者についての説明
+  - aboutLink: レポート作成者のリンク
+  - privacyLink: プライバシーポリシーのリンク
+  - termsLink: 利用規約のリンク
+- **reporter.png**
+  - レポート作成者のロゴ画像
+
+```meta.json
+// meta.json
+{
+  "reporterName": "東京都架空区",
+  "aboutMessage": "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
+  "aboutLink": "https://example.com/",
+  "privacyLink": "https://example.com/privacy",
+  "termsLink": "https://example.com/terms"
+}
+```

@@ -31,11 +31,12 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "../pipeline/outputs/example-polis/report-experimental/types/**/*.ts",
     "../pipeline/outputs/undefined/report-experimental/types/**/*.ts",
     ".next/types/**/*.ts",
     "next-env.d.ts",
     "out/types/**/*.ts",
-    "../pipeline/outputs/example-polis/report-experimental/types/**/*.ts"
+    "../pipeline/outputs/experimental/report/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

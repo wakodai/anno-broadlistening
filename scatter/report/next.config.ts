@@ -1,4 +1,6 @@
 import type { NextConfig } from 'next'
+import fs from 'fs'
+import path from 'path'
 
 const report = process.env.REPORT
 if (!report) {
@@ -20,15 +22,24 @@ let nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  env: { REPORT: report }
+  env: { REPORT: report },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      const sourceImage = path.resolve(`../pipeline/outputs/${process.env.REPORT}/reporter.png`)
+      const destinationImage = path.resolve('./public/reporter.png')
+      if (fs.existsSync(sourceImage)) {
+        fs.copyFileSync(sourceImage, destinationImage)
+      }
+    }
+    return config
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {
   nextConfig = {
     ...nextConfig,
     output: 'export',
-    distDir: `../pipeline/outputs/${report}/report`,
-    assetPrefix: './'
+    distDir: `../pipeline/outputs/${report}/report`
   }
 }
 
