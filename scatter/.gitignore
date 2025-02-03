@@ -8,6 +8,7 @@ pipeline/inputs/*
 
 pipeline/configs/*
 !pipeline/configs/example-polis.json
+!pipeline/configs/hierarchical-example-polis.json
 !pipeline/configs/example-videos.json
 !pipeline/configs/dummy-comments-japan.json
 !pipeline/configs/dummy-comments-japan-multi.json

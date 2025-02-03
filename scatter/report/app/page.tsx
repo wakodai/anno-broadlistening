@@ -8,9 +8,8 @@ import {XIcon} from 'lucide-react'
 import {BroadlisteningGuide} from '@/components/BroadlisteningGuide'
 import {Meta} from '@/type'
 
-const resultFile = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/result.json`, 'utf8')
-const result = JSON.parse(resultFile)
-
+const file = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/hierarchical_result.json`, 'utf8')
+const result = JSON.parse(file)
 let meta: Meta | null = null
 const metaFilePath = `../pipeline/outputs/${process.env.REPORT}/meta.json`
 if (fs.existsSync(metaFilePath)) {
