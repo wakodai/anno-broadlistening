@@ -35,16 +35,17 @@ REPORT=xxxxx npm start
 
 ## Meta
 
-レポート作成者の情報を表示するには `../pipeline/outputs/{{report_name}}` に以下のファイルを配置してください
+レポート作成者の情報を表示するには `../pipeline/outputs/{{report_name}}` に以下のファイルを配置してください  
+meta.json は必須ではなく、見つからない場合はレポート作成者情報を含めずにビルドされます
 
 - **meta.json**
-  - reporterName: レポート作成者名
-  - aboutMessage: レポート作成者についての説明
+  - reporterName: レポート作成者名(*必須)
+  - aboutMessage: レポート作成者についての説明(*必須)
   - aboutLink: レポート作成者のリンク
   - privacyLink: プライバシーポリシーのリンク
   - termsLink: 利用規約のリンク
 - **reporter.png**
-  - レポート作成者のロゴ画像
+  - レポート作成者のロゴ画像(*必須)
 
 ```meta.json
 // meta.json

@@ -6,11 +6,16 @@ import {Heading, HStack, Image, Text} from '@chakra-ui/react'
 import {About} from '@/components/About'
 import {XIcon} from 'lucide-react'
 import {BroadlisteningGuide} from '@/components/BroadlisteningGuide'
+import {Meta} from '@/type'
 
 const file = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/hierarchical_result.json`, 'utf8')
 const result = JSON.parse(file)
-const metaFile = fs.readFileSync(`../pipeline/outputs/${process.env.REPORT}/meta.json`, 'utf8')
-const meta = JSON.parse(metaFile)
+let meta: Meta | null = null
+const metaFilePath = `../pipeline/outputs/${process.env.REPORT}/meta.json`
+if (fs.existsSync(metaFilePath)) {
+  const metaFile = fs.readFileSync(metaFilePath, 'utf8')
+  meta = JSON.parse(metaFile)
+}
 
 export const metadata: Metadata = {
   title: `${result.config.question} - デジタル民主主義2030 ブロードリスニング`,
